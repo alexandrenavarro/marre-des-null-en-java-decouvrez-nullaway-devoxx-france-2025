@@ -9,8 +9,8 @@ public final class NullAwayDemo {
 
     public static void main(String... args) {
         // Check if there is a compilation error because you can not pass null on not null parameter on a constructor or a method OK
-        final Person person1 = new Person(null, "lastname", null, null);
-        System.out.println(person1);
+//        final Person person1 = new Person(null, "lastname", null, null);
+//        System.out.println(person1);
 
         // Check if you can pass null on mandatory field on the builder or any method OK
 //        final Person person2 = Person.builder()
