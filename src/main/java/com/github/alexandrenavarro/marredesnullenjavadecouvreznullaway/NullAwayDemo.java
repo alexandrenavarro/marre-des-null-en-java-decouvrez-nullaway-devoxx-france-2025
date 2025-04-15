@@ -3,6 +3,7 @@ package com.github.alexandrenavarro.marredesnullenjavadecouvreznullaway;
 
 import org.springframework.util.StringUtils;
 
+import java.util.Collections;
 import java.util.Optional;
 
 public final class NullAwayDemo {
