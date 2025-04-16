@@ -69,10 +69,8 @@ tasks.withType<JavaCompile>().configureEach {
 
         // NullAway Configuration
         error("NullAway")
-        option(
-            "NullAway:AnnotatedPackages",
-            "com.github.alexandrenavarro.marredesnullenjavadecouvreznullaway,org.springframework"
-        )
+        option("NullAway:AnnotatedPackages", "com.github.alexandrenavarro.marredesnullenjavadecouvreznullaway,org.springframework")
+        // option("NullAway:JSpecifyMode")
         option("NullAway:ExcludedClassAnnotations", "org.jilt.JiltGenerated,jakarta.persistence.Entity")
 
         // Disable because of PresentationSample

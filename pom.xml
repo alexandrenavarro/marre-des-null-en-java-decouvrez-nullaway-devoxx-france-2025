@@ -60,6 +60,7 @@
                             <!-- NullAway Configuration -->
                             -Xep:NullAway:ERROR
                             -XepOpt:NullAway:AnnotatedPackages=com.github.alexandrenavarro.marredesnullenjavadecouvreznullaway,org.springframework
+                            <!-- -XepOpt:NullAway:JSpecifyMode -->
                             -XepOpt:NullAway:ExcludedClassAnnotations=org.jilt.JiltGenerated,jakarta.persistence.Entity
 
                             <!--  Disable because of PresentationSample -->

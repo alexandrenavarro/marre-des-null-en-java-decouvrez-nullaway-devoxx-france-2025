@@ -21,13 +21,33 @@ public final class PresentationSample {
                         .build())
                 .build();
 
+        // On nullable object
+        final Person parent = Person.builder()
+                .firstName("parentFirstName")
+                .lastName("parentLastName")
+                .driverLicense(DriverLicense.builder()
+                        .id("parentDriverLicenseId")
+                        .build())
+                .build();
+
         final List<Person> personList = List.of(person);
 
-        // On nullable list
         String driverLicenseId = Optional.ofNullable(person)
                 .map(Person::getDriverLicense)
                 .map(DriverLicense::getId)
-                .orElse(null);
+                .orElse("NoDriverLicenseId");
+
+        String driverOrParentLicenseId = Optional.ofNullable(person)
+                .map(Person::getDriverLicense)
+                .map(DriverLicense::getId)
+                .orElseGet(() -> Optional.ofNullable(parent)
+                        .map(Person::getDriverLicense)
+                        .map(DriverLicense::getId)
+                        .orElse("NoDriverLicenseId"));
+
+
+        System.out.println(driverOrParentLicenseId);
+        System.out.println(driverLicenseId);
 
         List<String> driverLicenseIdList = Optional.ofNullable(personList)
                 .orElse(Collections.emptyList())
@@ -35,7 +55,7 @@ public final class PresentationSample {
                 .map(aPerson -> Optional.ofNullable(aPerson)
                         .map(Person::getDriverLicense)
                         .map(DriverLicense::getId)
-                        .orElse(null))
+                        .orElse("NoDriverLicenseId"))
                 .toList();
 
         // Use empty container or neutral element when it is possible
